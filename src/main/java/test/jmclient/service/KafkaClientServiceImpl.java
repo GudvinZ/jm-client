@@ -49,7 +49,7 @@ public class KafkaClientServiceImpl implements KafkaClientService {
         try {
             restTemplate.postForObject("http://localhost:8080/test", new HttpEntity<>(map, new LinkedMultiValueMap<>()), String.class);
         } catch (RestClientException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "something wrong");
+            e.printStackTrace();
         }
 
         subscribeChannel(channelName);
